@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin_Login - QUIZ-MASTER
+{% endblock %}
+
+
+{% block content%}
+
+<!-- Login Form Container -->
+<div class="container login-container">
+  <div class="login-header">
+      <h2>Admin Login</h2>
+      <p>Enter your admin credentials to access the dashboard.</p>
+  </div>
+
+  <!-- Flask Form for Admin Login -->
+  <form action="/admin_login" method="POST">
+      <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Enter admin username" required>
+      </div>
+
+      <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter admin password" required>
+      </div>
+
+      <!-- Error Message (if any) -->
+      {% if error %}
+      <div class="alert alert-danger" role="alert">
+          {{ error }}
+      </div>
+      {% endif %}
+
+      <button type="submit" class="btn btn-dark" action="/admin_dashboard">Login</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+
+
+{% endblock %}

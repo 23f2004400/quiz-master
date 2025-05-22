@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Quiz Result - QUIZ MASTER
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center text-success">Quiz Completed!</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <h3>Your Score: {{ score }}</h3>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Correct Answers</h3>
+    {% for question in questions %}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5>{{ question.question_statement }}</h5>
+            <ul class="list-group">
+                <li class="list-group-item {% if question.correct_option == 1 %}bg-success text-white{% endif %}">A) {{ question.option1 }}</li>
+                <li class="list-group-item {% if question.correct_option == 2 %}bg-success text-white{% endif %}">B) {{ question.option2 }}</li>
+                <li class="list-group-item {% if question.correct_option == 3 %}bg-success text-white{% endif %}">C) {{ question.option3 }}</li>
+                <li class="list-group-item {% if question.correct_option == 4 %}bg-success text-white{% endif %}">D) {{ question.option4 }}</li>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+
+    <a href="{{ url_for('user_dashboard') }}" class="btn btn-dark mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}

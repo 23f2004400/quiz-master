@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> {% block title %} Quiz Master {% endblock %}</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Make the page take full height */
+        html,
+        body {
+            height: 100%;
+        }
+
+        /* Wrapper ensures content fills available space */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* Full viewport height */
+        }
+
+        /* Main content expands to push footer down */
+        .content {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <div class="wrapper">
+        <main class="container content">
+            {% block content %}
+
+            {% endblock %}
+        </main>
+
+        <footer class="footer bg-dark text-white text-center py-3 mt-auto">
+            <div class="container">
+                <p class="mb-0">&copy; 2025 Quiz Master Application | All Rights Reserved</p>
+                <p class="mb-0">
+                    <a href="#" class="text-white mx-2">Privacy Policy</a> |
+                    <a href="#" class="text-white mx-2">Terms of Service</a> |
+                    <a href="contact" class="text-white mx-2">Contact Us</a>
+                </p>
+            </div>
+        </footer>
+</body>
+</html>

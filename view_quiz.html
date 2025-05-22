@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View Quiz - QUIZ MASTER
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Quiz Details</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-primary">{{ quiz.title }}</h4>
+            <p><strong>Subject:</strong> {{ subject.name if subject else 'N/A' }}</p>
+            <p><strong>Chapter:</strong> {{ chapter.name if chapter else 'N/A' }}</p>
+            <p><strong>Date:</strong> {{ quiz.date_of_quiz }}</p>
+            <p><strong>Duration:</strong> {{ quiz.time_duration }} minutes</p>
+            <p><strong>Total Questions:</strong> {{ questions|length }}</p>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Questions</h3>
+    {% if questions %}
+        {% for question in questions %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5>{{ loop.index }}. {{ question.question_statement }}</h5>
+                <ul class="list-group">
+                    <li class="list-group-item">A) {{ question.option1 }}</li>
+                    <li class="list-group-item">B) {{ question.option2 }}</li>
+                    <li class="list-group-item">C) {{ question.option3 }}</li>
+                    <li class="list-group-item">D) {{ question.option4 }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No questions available.</p>
+    {% endif %}
+
+    <a href="{{ url_for('user_dashboard') }}" class="btn btn-dark mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}

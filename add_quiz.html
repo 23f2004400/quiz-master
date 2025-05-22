@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Quiz - {{ chapter.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add Quiz for {{ chapter.name }}</h2>
+    
+    <div class="card shadow-sm p-4">
+        <form action="{{ url_for('add_quiz', chapter_id=chapter.id) }}" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Quiz Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter quiz title" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="date_of_quiz" class="form-label">Quiz Date</label>
+                <input type="date" class="form-control" id="date_of_quiz" name="date_of_quiz" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="time_duration" class="form-label">Time Duration (HH:MM)</label>
+                <input type="text" class="form-control" id="time_duration" name="time_duration" placeholder="e.g. 01:30" required>
+            </div>
+            <button type="submit" class="btn btn-secondary">Add Quiz</button>
+            <a href="{{ url_for('view_quizzes', chapter_id=chapter.id) }}" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

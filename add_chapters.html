@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Chapter - QUIZ-MASTER
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add Chapter for {{ subject.name }}</h2>
+    
+    <div class="card shadow-sm p-4">
+        <form action="{{ url_for('add_chapter', subject_id=subject.id) }}" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Chapter Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Add Chapter</button>
+            <a href="{{ url_for('view_chapters', subject_id=subject.id) }}" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Question{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Add Question for {{ quiz.title }}</h1>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Question Statement</label>
+            <input type="text" class="form-control" name="question_statement" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Option 1</label>
+            <input type="text" class="form-control" name="option1" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Option 2</label>
+            <input type="text" class="form-control" name="option2" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Option 3</label>
+            <input type="text" class="form-control" name="option3" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Option 4</label>
+            <input type="text" class="form-control" name="option4" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Correct Option (1-4)</label>
+            <input type="number" class="form-control" name="correct_option" min="1" max="4" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Question</button>
+    </form>
+</div>
+{% endblock %}
